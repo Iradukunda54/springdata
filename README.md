@@ -24,9 +24,19 @@ A highly optimized Spring Boot application featuring Spring Data JPA integration
 
 ### 1. Database Configuration
 Ensure PostgreSQL is running on `localhost:5432`.
-The application expects a database named `Blogweb` (updated in `application-dev.yml`) with:
-- **Username**: `postgres`
-- **Password**: `Kevine@123`
+The application expects a database named `Blogweb`.
+
+Create your own profile-specific configuration file (e.g., `src/main/resources/application-dev.yml`) using the template below:
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Blogweb
+    username: <YOUR_DB_USERNAME>
+    password: <YOUR_DB_PASSWORD>
+    driver-class-name: org.postgresql.Driver
+```
+
+> **Note:** The `application-dev.yml`, `application-test.yml`, and `application-prod.yml` files are excluded from version control via `.gitignore` to protect sensitive credentials.
 
 ### 2. Running the Application
 Use Maven to run the application:
